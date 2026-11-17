@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cari dan putar koleksi MP3 lokal dari folder source dengan Sismul."
+    />
+    <title>Sismul | Temukan lagu pilihanmu</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="wordmark" href="#home" aria-label="Sismul, beranda">sismul</a>
+
+        <nav class="primary-nav" aria-label="Navigasi utama">
+          <a href="#home">Beranda</a>
+          <a href="#songs">Lagu</a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="saved-toggle"
+            id="saved-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Tampilkan lagu tersimpan"
+          >
+            Simpanan
+          </button>
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Aktifkan tema gelap"
+          >
+            Mode gelap
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero page-width" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="hero-kicker">Musik dari folder source</p>
+          <h1 id="hero-title">Putar koleksi lagumu.</h1>
+          <p class="hero-description">
+            Semua lagu diambil dari file MP3 lokal. Cari judul atau artis, lalu
+            putar langsung dari halaman ini.
+          </p>
+          <a class="primary-button" href="#songs">Pilih lagu</a>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="sleeve-label">
+            <span>SISMUL</span>
+            <span>FILE LOKAL</span>
+          </div>
+          <div class="record">
+            <span class="record-center"></span>
+          </div>
+          <p class="art-caption">putar koleksi sendiri</p>
+        </div>
+      </section>
+
+      <section class="collection-section page-width" aria-labelledby="collection-title">
+        <div class="section-intro">
+          <p class="section-index">Koleksi lokal</p>
+          <h2 id="collection-title">Musik yang ada di folder source</h2>
+          <p>Gunakan tombol putar untuk mendengarkan file MP3 di perangkat ini.</p>
+        </div>
+      </section>
+
+      <section class="song-section page-width" id="songs" aria-labelledby="songs-title">
+        <div class="catalog-heading">
+          <div class="section-intro">
+            <p class="section-index">Daftar putar</p>
+            <h2 id="songs-title">File MP3 kamu</h2>
+            <p>Judul dan artis diambil dari nama file di folder source.</p>
+          </div>
+
+          <div class="search-wrap">
+            <label for="song-search">Cari lagu atau artis</label>
+            <input
+              id="song-search"
+              name="song-search"
+              type="search"
+              placeholder="Cari judul atau artis"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <p class="storage-notice" id="storage-notice" role="status" hidden></p>
+        <p class="result-status" id="result-status" role="status" aria-live="polite"></p>
+
+        <div class="song-list" id="song-list" aria-busy="true"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <h3 id="empty-title">Tidak ada lagu yang cocok.</h3>
+          <p id="empty-description">Coba kata kunci lain.</p>
+          <button class="text-button" id="reset-filters" type="button">Atur ulang pencarian</button>
+        </div>
+      </section>
+    </main>
+
+    <section class="player-dock" aria-label="Pemutar lagu">
+      <div class="player-inner">
+        <div class="player-track">
+          <p class="player-label">Sedang dipilih</p>
+          <p class="player-title" id="player-title">Pilih lagu untuk mulai memutar</p>
+          <p class="player-status" id="player-status" role="status" aria-live="polite">
+            Audio diputar langsung dari folder source.
+          </p>
+        </div>
+        <audio id="audio-player" preload="none" aria-label="Kontrol pemutaran audio"></audio>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <a class="wordmark footer-wordmark" href="#home">sismul</a>
+      <p>Audio bersumber dari file lokal di folder source.</p>
+    </footer>
+  </body>
+</html>
